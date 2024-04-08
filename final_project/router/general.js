@@ -36,7 +36,9 @@ public_users.get('/',function (req, res) {
 //Use Promise to get the book list available in the shop
 public_users.get('/', (req, res) => {
   const getBooks = new Promise(resolve => resolve(res.status(200).json(books)));
-  getBooks.then(() => console.log('Promise for Task 10 resolved'));
+  getBooks
+  .then(() => console.log('Books list resolved'))
+  .catch(() => console.log('Books list rejected'));
 });
 
 /*
@@ -68,8 +70,8 @@ public_users.get('/isbn/:isbn', function (req, res) {
     }
   });
   getBook
-    .then(() => console.log('Promise for Task 11 resolved'))
-    .catch(() => console.log('Promise for Task 11 rejected'));
+    .then(() => console.log('Book details based on ISBN resolved'))
+    .catch(() => console.log('Book details based on ISBN rejected'));
 });
  
 /*
@@ -106,8 +108,8 @@ public_users.get('/author/:author', (req, res) => {
     }
   });
   getBooks
-    .then(() => console.log('Promise for Task 12 resolved'))
-    .catch(() => console.log('Promise for Task 12 rejected'));
+    .then(() => console.log('Books based on author resolved'))
+    .catch(() => console.log('Books based on author rejected'));
 });
 
 /*
@@ -144,8 +146,8 @@ public_users.get('/title/:title', (req, res) => {
     }
   });
   getBooks
-    .then(() => console.log('Promise for Task 13 resolved'))
-    .catch(() => console.log('Promise for Task 13 rejected'));
+    .then(() => console.log('Books based on title resolved'))
+    .catch(() => console.log('Books based on title rejected'));
 });
 
 //  Get book reviews based on ISBN
